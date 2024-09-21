@@ -7,6 +7,8 @@ import designpatterns.behavioral.command.ComandoLigar;
 import designpatterns.behavioral.command.IComando;
 import designpatterns.behavioral.command.Interruptor;
 import designpatterns.behavioral.command.Luz;
+import designpatterns.creational.factorymethod.IFactory;
+import designpatterns.creational.factorymethod.VeiculoFactoryConcreta;
 import designpatterns.structural.adapter.FuncionarioAdapter;
 import designpatterns.structural.adapter.IAlvo;
 import designpatterns.structural.adapter.SistemaDeCobrancaDeTerceiros;
@@ -20,6 +22,18 @@ public class Main {
         exemploPadraoProxy();
         exemploAdapter();
         exemploCommand();
+        exemploFactoryMethod();
+    }
+
+    private static void exemploFactoryMethod() {
+
+        var factory = new VeiculoFactoryConcreta();
+
+        IFactory carro = factory.obterVeiculo("Carro");
+        carro.dirigir(10);
+
+        IFactory caminhao = factory.obterVeiculo("Caminhao");
+        caminhao.dirigir(20);
     }
 
     private static void exemploCommand() {
