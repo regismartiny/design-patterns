@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Interruptor {
 
-    private List<IComando> comandos = new ArrayList<>();
+    private final List<IComando> comandos = new ArrayList<>();
 
     public void armazenarEExecutar(IComando comando) {
         comandos.add(comando);
