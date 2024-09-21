@@ -1,7 +1,7 @@
 package designpatterns;
 
-import designpatterns.decorator.HondaCivic;
-import designpatterns.decorator.OfertaEspecial;
+import designpatterns.structural.decorator.HondaCivic;
+import designpatterns.structural.decorator.OfertaEspecial;
 
 public class Main {
     public static void main(String[] args) {
