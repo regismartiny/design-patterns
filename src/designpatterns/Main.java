@@ -1,5 +1,12 @@
 package designpatterns;
 
+import java.util.Scanner;
+
+import designpatterns.behavioral.command.ComandoDesligar;
+import designpatterns.behavioral.command.ComandoLigar;
+import designpatterns.behavioral.command.IComando;
+import designpatterns.behavioral.command.Interruptor;
+import designpatterns.behavioral.command.Luz;
 import designpatterns.structural.adapter.FuncionarioAdapter;
 import designpatterns.structural.adapter.IAlvo;
 import designpatterns.structural.adapter.SistemaDeCobrancaDeTerceiros;
@@ -12,6 +19,32 @@ public class Main {
         exemploPadraoDecorator();
         exemploPadraoProxy();
         exemploAdapter();
+        exemploCommand();
+    }
+
+    private static void exemploCommand() {
+        System.out.println("Insira um comando (\"ON/OFF\")");
+
+        Scanner ler = new Scanner(System.in);
+        String cmd = ler.next();
+
+        Luz lampada = new Luz();
+
+        IComando ligar = new ComandoLigar(lampada);
+        IComando desligar = new ComandoDesligar(lampada);
+
+        Interruptor interruptor = new Interruptor();
+
+        switch (cmd) {
+            case "ON":
+                interruptor.armazenarEExecutar(ligar);
+                break;
+            case "OFF":
+                interruptor.armazenarEExecutar(desligar);
+                break;
+            default:
+                System.out.println("Comando \"ON\" ou \"OFF\" é necessário");
+        }
     }
 
     private static void exemploAdapter() {
