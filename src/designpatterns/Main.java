@@ -10,6 +10,9 @@ import designpatterns.behavioral.command.Luz;
 import designpatterns.behavioral.strategy.Contexto;
 import designpatterns.behavioral.strategy.PosicaoAcoes;
 import designpatterns.behavioral.strategy.PosicaoFundos;
+import designpatterns.behavioral.templatemethod.ClasseConcreta1;
+import designpatterns.behavioral.templatemethod.ClasseConcreta2;
+import designpatterns.behavioral.templatemethod.Cliente;
 import designpatterns.creational.factorymethod.IFactory;
 import designpatterns.creational.factorymethod.VeiculoFactoryConcreta;
 import designpatterns.structural.adapter.FuncionarioAdapter;
@@ -27,6 +30,16 @@ public class Main {
         exemploCommand();
         exemploFactoryMethod();
         exemploStrategy();
+        exemploTemplateMethod();
+    }
+
+    private static void exemploTemplateMethod() {
+        System.out.println("Mesmo código de cliente pode funcionar com diferentes subclasses:");
+        System.out.println("Subclasse ClasseConcreta1:");
+        Cliente.codigoCliente(new ClasseConcreta1());
+        System.out.println();
+        System.out.println("Subclasse ClasseConcreta2:");
+        Cliente.codigoCliente(new ClasseConcreta2());
     }
 
     private static void exemploStrategy() {
