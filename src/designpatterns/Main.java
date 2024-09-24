@@ -7,6 +7,9 @@ import designpatterns.behavioral.command.ComandoLigar;
 import designpatterns.behavioral.command.IComando;
 import designpatterns.behavioral.command.Interruptor;
 import designpatterns.behavioral.command.Luz;
+import designpatterns.behavioral.strategy.Contexto;
+import designpatterns.behavioral.strategy.PosicaoAcoes;
+import designpatterns.behavioral.strategy.PosicaoFundos;
 import designpatterns.creational.factorymethod.IFactory;
 import designpatterns.creational.factorymethod.VeiculoFactoryConcreta;
 import designpatterns.structural.adapter.FuncionarioAdapter;
@@ -23,6 +26,15 @@ public class Main {
         exemploAdapter();
         exemploCommand();
         exemploFactoryMethod();
+        exemploStrategy();
+    }
+
+    private static void exemploStrategy() {
+        var contexto = new Contexto();
+        contexto.setStrategy(new PosicaoAcoes());
+        contexto.obterPosicaoCliente(335962);
+        contexto.setStrategy(new PosicaoFundos());
+        contexto.obterPosicaoCliente(335962);
     }
 
     private static void exemploFactoryMethod() {
